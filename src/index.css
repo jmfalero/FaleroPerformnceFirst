@@ -13,3 +13,8 @@ background-color: brown;
   color: aliceblue;
   background-color: rgba(67, 68, 66, 0.938);
 }
+
+.fondoBody {
+  color: black;
+  background-color: rgb(247, 248, 246);
+}

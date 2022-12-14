@@ -1,15 +1,28 @@
 import React from "react";
-import Navbar from "./components/NavBar.jsx";
-import Footer from "./components/Footer.jsx";
-import ItemlistContainer from "./components/ItemListContainer.jsx";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Footer from "./components/Footer";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import NavBar from "./components/NavBar";
+
+import Error404 from "./components/Error404";
+
 function App() {
   return (
-      <div className ="container-fluid">
-        <Navbar />
-        <ItemlistContainer greeting={"Estamos armando la pagina!"}/>
+    <div>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path={"/"} element={<ItemListContainer />} />
+          <Route path={"/category/:id"} element={<ItemListContainer />} />
+          <Route path={"/item/:id"} element={<ItemDetailContainer />} />
+          <Route path={"*"} element={<Error404 />} />
+        </Routes>
+        
         <Footer />
-       </div>
-  )
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
